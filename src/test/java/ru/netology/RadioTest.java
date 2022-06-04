@@ -1,6 +1,7 @@
 package ru.netology;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RadioTest {
@@ -39,9 +40,20 @@ public class RadioTest {
     }
 
     @Test
-    void maximumVolume() {
+    void volumeUp() {
         Radio cond = new Radio();
-        cond.setVolumeLevel(11);
+        cond.setVolumeUp(5);
+
+        int actual = cond.getVolumeLevel();
+        int expected = 6;
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void volumeUpMax() {
+        Radio cond = new Radio();
+        cond.setVolumeUp(11);
 
         int actual = cond.getVolumeLevel();
         int expected = 10;
@@ -50,9 +62,9 @@ public class RadioTest {
     }
 
     @Test
-    void minimumVolume() {
+    void volumeUpMin() {
         Radio cond = new Radio();
-        cond.setVolumeLevel(-2);
+        cond.setVolumeUp(-2);
 
         int actual = cond.getVolumeLevel();
         int expected = 0;
@@ -61,13 +73,37 @@ public class RadioTest {
     }
 
     @Test
-    void volume() {
+    void volumeDown() {
         Radio cond = new Radio();
-        cond.setVolumeLevel(5);
+        cond.setVolumeDown(5);
 
         int actual = cond.getVolumeLevel();
-        int expected = 6;
+        int expected = 4;
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    void volumeDownMax() {
+        Radio cond = new Radio();
+        cond.setVolumeDown(11);
+
+        int actual = cond.getVolumeLevel();
+        int expected = 10;
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void volumeDownMin() {
+        Radio cond = new Radio();
+        cond.setVolumeDown(-1);
+
+        int actual = cond.getVolumeLevel();
+        int expected = 0;
+
+        assertEquals(expected, actual);
+
+    }
+
 }

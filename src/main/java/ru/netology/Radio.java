@@ -13,24 +13,39 @@ public class Radio {
         }
         radioStationNumber = newRadioStationNumber;
     }
+
     public int getRadioStationNumber() {
         return radioStationNumber;
     }
 
     private int volumeLevel;
 
-    public void setVolumeLevel(int newVolumeLevel) {
-        if (newVolumeLevel < 10) {
-            newVolumeLevel = newVolumeLevel + 1;
+    public void setVolumeUp(int newVolumeUp) {
+        if (newVolumeUp < 10) {
+            newVolumeUp = newVolumeUp + 1;
         }
-        if (newVolumeLevel > 10) {
-            newVolumeLevel = 10;
+        if (newVolumeUp > 10) {
+            newVolumeUp = 10;
         }
-        if (newVolumeLevel < 0) {
-            newVolumeLevel = 0;
+        if (newVolumeUp < 0) {
+            newVolumeUp = 0;
         }
-        volumeLevel = newVolumeLevel;
+        volumeLevel = newVolumeUp;
     }
+
+    public void setVolumeDown(int newVolumeDown) {
+        if (newVolumeDown <= 10) {
+            newVolumeDown = newVolumeDown - 1;
+        }
+        if (newVolumeDown > 10) {
+            newVolumeDown = 10;
+        }
+        if (newVolumeDown < 0) {
+            newVolumeDown = 0;
+        }
+        volumeLevel = newVolumeDown;
+    }
+
     public int getVolumeLevel() {
         return volumeLevel;
     }
