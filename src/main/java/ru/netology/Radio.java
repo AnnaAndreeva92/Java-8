@@ -30,18 +30,20 @@ public class Radio {
         this.radioStationNumber++;
     }
 
-public void prev() {
+    public void prev() {
         if (radioStationNumber == 0) {
             this.radioStationNumber = 9;
             return;
         }
         this.radioStationNumber--;
     }
+
     public int getVolume() {
         return volume;
     }
-    public void setVolume (int volume) {
-        if (volume < 0){
+
+    public void setVolume(int volume) {
+        if (volume < 0) {
             return;
         }
         if (volume > 10) {
@@ -49,6 +51,7 @@ public void prev() {
         }
         this.volume = volume;
     }
+
     public void volumeUpForOne() {
         if (volume == 10) {
             this.volume = volume;
@@ -57,15 +60,16 @@ public void prev() {
             this.volume++;
         }
     }
-        public void volumeDownForOne() {
-            if(volume ==0) {
-                this.volume = volume;
-            }
-            if (volume > 0) {
-                this.volume--;
-            }
+
+    public void volumeDownForOne() {
+        if (volume == 0) {
+            this.volume = volume;
+        }
+        if (volume > 0) {
+            this.volume--;
         }
     }
+}
 
 
 

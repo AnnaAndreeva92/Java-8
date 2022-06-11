@@ -26,14 +26,16 @@ public class RadioTest {
         int expected = 0;
         Assertions.assertEquals(expected, radio.getRadioStationNumber());
     }
-@Test
-void shouldNotChangeOnNextRadioStationIfStationIsMin() {
+
+    @Test
+    void shouldNotChangeOnNextRadioStationIfStationIsMin() {
         Radio radio = new Radio();
         int radioStationNumber = -1;
         radio.setRadioStationNumber(radioStationNumber);
         int expected = 0;
         Assertions.assertEquals(expected, radio.getRadioStationNumber());
-}
+    }
+
     @Test
     void next() {
         Radio radio = new Radio();
@@ -56,6 +58,7 @@ void shouldNotChangeOnNextRadioStationIfStationIsMin() {
         Assertions.assertEquals(expected, radio.getRadioStationNumber());
 
     }
+
     @Test
     void shouldChangeToThePreviousRadioStation() {
         Radio radio = new Radio();
@@ -65,6 +68,7 @@ void shouldNotChangeOnNextRadioStationIfStationIsMin() {
         int expected = 4;
         Assertions.assertEquals(expected, radio.getRadioStationNumber());
     }
+
     @Test
     void volumeUpForOne() {
         Radio radio = new Radio();
@@ -74,6 +78,7 @@ void shouldNotChangeOnNextRadioStationIfStationIsMin() {
         int expected = 6;
         Assertions.assertEquals(expected, radio.getVolume());
     }
+
     @Test
     void volumeDownForOne() {
         Radio radio = new Radio();
@@ -83,6 +88,7 @@ void shouldNotChangeOnNextRadioStationIfStationIsMin() {
         int expected = 6;
         Assertions.assertEquals(expected, radio.getVolume());
     }
+
     @Test
     void shouldSetVolumeIfVolumeIsOverMax() {
         Radio radio = new Radio();
@@ -91,15 +97,17 @@ void shouldNotChangeOnNextRadioStationIfStationIsMin() {
         int expected = 0;
         Assertions.assertEquals(expected, radio.getVolume());
     }
+
     @Test
     void shouldSetVolumeIfVolumeIsUnderMin() {
-    Radio radio =new Radio();
-    int volume = -1;
-    radio.setVolume(volume);
-    int expected = 0;
-    Assertions.assertEquals(expected, radio.getVolume());
+        Radio radio = new Radio();
+        int volume = -1;
+        radio.setVolume(volume);
+        int expected = 0;
+        Assertions.assertEquals(expected, radio.getVolume());
 
     }
+
     @Test
     void shouldNotChangeVolumeIfVolumeIsMin() {
         Radio radio = new Radio();
@@ -110,6 +118,7 @@ void shouldNotChangeOnNextRadioStationIfStationIsMin() {
         assertEquals(expected, radio.getVolume());
 
     }
+
     @Test
     void shouldNotChangeVolumeIfVolumeIsMax() {
         Radio radio = new Radio();
