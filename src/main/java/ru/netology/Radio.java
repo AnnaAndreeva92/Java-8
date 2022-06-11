@@ -3,50 +3,75 @@ package ru.netology;
 public class Radio {
 
     private int radioStationNumber;
-
-    public void setRadioStationNumber(int newRadioStationNumber) {
-        if (newRadioStationNumber < 0) {
-            newRadioStationNumber = 9;
-        }
-        if (newRadioStationNumber > 9) {
-            newRadioStationNumber = 0;
-        }
-        radioStationNumber = newRadioStationNumber;
-    }
+    private int volume;
 
     public int getRadioStationNumber() {
         return radioStationNumber;
     }
 
-    private int volumeLevel;
 
-    public void setVolumeUp(int newVolumeUp) {
-        if (newVolumeUp < 10) {
-            newVolumeUp = newVolumeUp + 1;
+    public void setRadioStationNumber(int newRadioStationNumber) {
+
+        if (newRadioStationNumber < 0) {
+            return;
         }
-        if (newVolumeUp > 10) {
-            newVolumeUp = 10;
+        if (newRadioStationNumber > 9) {
+            return;
         }
-        if (newVolumeUp < 0) {
-            newVolumeUp = 0;
-        }
-        volumeLevel = newVolumeUp;
+        this.radioStationNumber = newRadioStationNumber;
     }
 
-    public void setVolumeDown(int newVolumeDown) {
-        if (newVolumeDown <= 10) {
-            newVolumeDown = newVolumeDown - 1;
+
+    public void next() {
+        if (radioStationNumber == 9) {
+            this.radioStationNumber = 0;
+            return;
         }
-        if (newVolumeDown > 10) {
-            newVolumeDown = 10;
-        }
-        if (newVolumeDown < 0) {
-            newVolumeDown = 0;
-        }
-        volumeLevel = newVolumeDown;
+        this.radioStationNumber++;
     }
 
-    public int getVolumeLevel() {
-        return volumeLevel;
+public void prev() {
+        if (radioStationNumber == 0) {
+            this.radioStationNumber = 9;
+            return;
+        }
+        this.radioStationNumber--;
     }
-}
+    public int getVolume() {
+        return volume;
+    }
+    public void setVolume (int volume) {
+        if (volume < 0){
+            return;
+        }
+        if (volume > 10) {
+            return;
+        }
+        this.volume = volume;
+    }
+    public void volumeUpForOne() {
+        if (volume == 10) {
+            this.volume = volume;
+        }
+        if (volume < 10) {
+            this.volume++;
+        }
+    }
+        public void volumeDownForOne() {
+            if(volume ==0) {
+                this.volume = volume;
+            }
+            if (volume > 0) {
+                this.volume--;
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
