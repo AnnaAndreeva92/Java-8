@@ -1,81 +1,98 @@
 package ru.netology;
 
 public class Radio {
+    private int minNumber = 0;
+    private int maxNumber = 9;
+    private int currentRadioStation;
+    private int minVolume = 0;
+    private int maxVolume = 100;
+    private int currentVolume;
 
-    private int radioStationNumber;
-    private int volume;
 
-    public int getRadioStationNumber() {
-        return radioStationNumber;
+    public int getMaxVolume() {
+        return maxVolume;
     }
 
-
-    public void setRadioStationNumber(int newRadioStationNumber) {
-
-        if (newRadioStationNumber < 0) {
-            return;
-        }
-        if (newRadioStationNumber > 9) {
-            return;
-        }
-        this.radioStationNumber = newRadioStationNumber;
+    public void setMaxVolume(int maxVolume) {
+        this.maxVolume = maxVolume;
     }
 
-
-    public void next() {
-        if (radioStationNumber == 9) {
-            this.radioStationNumber = 0;
-            return;
-        }
-        this.radioStationNumber++;
+    public int getMinVolume() {
+        return minVolume;
     }
 
-    public void prev() {
-        if (radioStationNumber == 0) {
-            this.radioStationNumber = 9;
-            return;
-        }
-        this.radioStationNumber--;
+    public void setMinVolume(int minVolume) {
+        this.minVolume = minVolume;
     }
 
-    public int getVolume() {
-        return volume;
+    public int getCurrentVolume() {
+        return currentVolume;
     }
 
-    public void setVolume(int volume) {
-        if (volume < 0) {
+    public void setCurrentVolume(int currentVolume) {
+        if (currentVolume > maxVolume) {
             return;
         }
-        if (volume > 10) {
+        if (currentVolume < minVolume) {
             return;
         }
-        this.volume = volume;
+        this.currentVolume = currentVolume;
+    }
+
+    public int getMinNumber() {
+        return minNumber;
+    }
+
+    public void setMinNumber(int minNumber) {
+        this.minNumber = minNumber;
+    }
+
+    public int getMaxNumber() {
+
+        return maxNumber;
+    }
+
+    public void setMaxNumber(int maxNumber) {
+
+        this.maxNumber = maxNumber;
+    }
+
+    public int getCurrentRadioStation() {
+
+        return currentRadioStation;
+    }
+
+    public void setCurrentRadioStation(int currentRadioStation) {
+        if (currentRadioStation < minNumber) {
+            return;
+        }
+        if (currentRadioStation > maxNumber) {
+            return;
+        }
+        this.currentRadioStation = currentRadioStation;
+    }
+
+    public void nextStation() {
+        if (currentRadioStation >= maxNumber) {
+            setCurrentRadioStation(minNumber);
+        } else {
+            setCurrentRadioStation(currentRadioStation + 1);
+        }
+    }
+
+    public void prevStation() {
+        if (currentRadioStation <= minNumber) {
+            setCurrentRadioStation(maxNumber);
+        } else {
+            setCurrentRadioStation(currentRadioStation - 1);
+        }
     }
 
     public void volumeUpForOne() {
-        if (volume == 10) {
-            this.volume = volume;
-        }
-        if (volume < 10) {
-            this.volume++;
-        }
+        setCurrentVolume(currentVolume + 1);
     }
 
     public void volumeDownForOne() {
-        if (volume == 0) {
-            this.volume = volume;
-        }
-        if (volume > 0) {
-            this.volume--;
-        }
+        setCurrentVolume(currentVolume - 1);
     }
 }
-
-
-
-
-
-
-
-
-
