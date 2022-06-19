@@ -10,7 +10,6 @@ public class RadioTest {
     @Test
     public void checkCurrentStation() {
         radio.setCurrentRadioStation(2);
-
         assertEquals(2, radio.getCurrentRadioStation());
 
     }
