@@ -1,81 +1,73 @@
 package ru.netology;
 
 public class Radio {
+    private int currentRadioStation;
+    private int currentVolume;
+    private int maxStation;
+    private int maxVolume;
 
-    private int radioStationNumber;
-    private int volume;
-
-    public int getRadioStationNumber() {
-        return radioStationNumber;
+    public Radio() {
+        maxStation = 9;
+        maxVolume = 100;
     }
 
-
-    public void setRadioStationNumber(int newRadioStationNumber) {
-
-        if (newRadioStationNumber < 0) {
-            return;
-        }
-        if (newRadioStationNumber > 9) {
-            return;
-        }
-        this.radioStationNumber = newRadioStationNumber;
+    public Radio(int stationsCount) {
+        maxStation = stationsCount - 1;
     }
-
 
     public void next() {
-        if (radioStationNumber == 9) {
-            this.radioStationNumber = 0;
-            return;
+        if (currentRadioStation < maxStation) {
+            currentRadioStation++;
+        } else {
+            currentRadioStation = 0;
         }
-        this.radioStationNumber++;
     }
 
     public void prev() {
-        if (radioStationNumber == 0) {
-            this.radioStationNumber = 9;
+        if (currentRadioStation > 0) {
+            currentRadioStation--;
+        } else {
+            currentRadioStation = 9;
+        }
+    }
+
+    public int getCurrentRadioStation() {
+        return currentRadioStation;
+    }
+
+    public void setCurrentRadioStation(int currentRadioStation) {
+        if (currentRadioStation < 0) {
             return;
         }
-        this.radioStationNumber--;
-    }
-
-    public int getVolume() {
-        return volume;
-    }
-
-    public void setVolume(int volume) {
-        if (volume < 0) {
+        if (currentRadioStation > maxStation) {
             return;
         }
-        if (volume > 10) {
+        this.currentRadioStation = currentRadioStation;
+    }
+
+    public void increaseVolume() {
+        if (currentVolume < maxVolume) {
+            currentVolume++;
+        }
+    }
+
+    public void decreaseVolume() {
+        if (currentVolume > 0) {
+            currentVolume--;
+        }
+    }
+
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+
+    public void setCurrentVolume(int currentVolume) {
+        if (currentVolume < 0) {
             return;
         }
-        this.volume = volume;
-    }
-
-    public void volumeUpForOne() {
-        if (volume == 10) {
-            this.volume = volume;
+        if (currentVolume > maxVolume) {
+           currentVolume = maxVolume;
         }
-        if (volume < 10) {
-            this.volume++;
-        }
-    }
-
-    public void volumeDownForOne() {
-        if (volume == 0) {
-            this.volume = volume;
-        }
-        if (volume > 0) {
-            this.volume--;
-        }
+        this.currentVolume = currentVolume;
     }
 }
-
-
-
-
-
-
-
-
-
